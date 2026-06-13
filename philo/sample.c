@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   sample.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 13:24:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/13 13:37:34 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/06/13 13:53:41 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/06/13 13:55:32 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	main(int ac, char **av)
+int	sample(void)
 {
-	(void)ac;
-	(void)av;
-
-	printf("RUN PROGRAM");
-	return (0);
+	return (EXIT_SUCCESS);
 }

@@ -5,13 +5,13 @@ CFLAGS		= -Wall -Wextra -Werror -g3
 INCLUDES	= -I./includes
 # LIBS		= -L./lib/libft -lft -lreadline
 
-SRC_DIR		= src
+SRC_DIR		= .
 OBJ_DIR		= obj
-# LIBFT_DIR	= lib/libft
 
-SRC_FILES	= philosophers.c
+SRC_FILES	= philosophers.c \
+				sample.c
 
-SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+SRCS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES))
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 
 GREEN		= \033[0;32m
@@ -26,9 +26,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "$(GREEN)Compiled: $<$(RESET)"
 
 $(NAME): $(OBJS)
-	@make -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)✓ Shelly compiled successfully!$(RESET)"
+	@echo "$(GREEN)✓ Philo compiled successfully!$(RESET)"
 
 unit-tests:
 	@$(MAKE) -C ./tests

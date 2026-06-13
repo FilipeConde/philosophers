@@ -10,7 +10,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-int	start_capture(void);
+int		start_capture(void);
 char	*end_capture(int saved_stdout);
 void	init_test_log(void);
 extern FILE	*g_test_log;
