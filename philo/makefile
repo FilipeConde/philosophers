@@ -33,6 +33,9 @@ $(NAME): $(OBJS)
 unit-tests:
 	@$(MAKE) -C ./tests
 
+norminette:
+	@norminette ./*.c ./*.h
+
 clean:
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) clean -C ./tests
