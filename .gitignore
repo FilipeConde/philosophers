@@ -1,0 +1,13 @@
+*.o
+philo
+philosophers
+*.a
+*.out
+.test_failures
+*.log
+*.json
+*.swp
+GEMINI.md
+CLAUDE.md
+docker-nvim/
+.vscode
