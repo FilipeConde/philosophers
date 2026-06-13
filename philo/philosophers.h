@@ -5,7 +5,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/time.h>
 
-int	sample(void);
+int				sample(void);
+unsigned long	get_current_time();
 
 #endif

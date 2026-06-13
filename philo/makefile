@@ -9,7 +9,8 @@ SRC_DIR		= .
 OBJ_DIR		= obj
 
 SRC_FILES	= philosophers.c \
-				sample.c
+				sample.c \
+				get_current_time.c
 
 SRCS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES))
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
