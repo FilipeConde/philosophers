@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 15:32:44 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/13 18:45:19 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/13 18:59:58 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ typedef struct s_sim
 
 int				sample(void);
 unsigned long	get_current_time(void);
+long	ft_atol(const char *nptr);
 
 #endif
