@@ -1,5 +1,4 @@
 *.o
-philo
 philosophers
 *.a
 *.out
@@ -11,3 +10,4 @@ GEMINI.md
 CLAUDE.md
 docker-nvim/
 .vscode
+philo/philo
