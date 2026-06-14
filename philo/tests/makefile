@@ -4,6 +4,7 @@ CFLAGS      = -g3 -Wextra -Werror -Wall
 # IMPORTANTE: Garanta que nenhum desses arquivos tenha uma função main()
 C_FILES     = ../sample.c \
 				../get_current_time.c \
+				../input_checker.c \
 				../ft_atol.c
 
 UTIL_FILES  = utils/test_log.c \
@@ -16,6 +17,7 @@ HEADERS     = -I. -I$(TEST_DIR) -I..
               TEST_DIR    = ./
               TEST_SRCS   = $(TEST_DIR)/test-sample.c \
 							$(TEST_DIR)/test-get_current_time.c \
+							$(TEST_DIR)/test-input_checker.c \
 							$(TEST_DIR)/test-ft_atol.c
 
 TEST_BINS   = $(TEST_SRCS:.c=.out)
