@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 20:16:02 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/13 20:53:00 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/13 21:05:23 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ amount of meals(optional).\n");
 	while (i < ac)
 	{
 		if (ft_atol(av[i]) <= 0)
+		{
+			printf("Invalid argument(s)\n");
 			return (EXIT_FAILURE);
+		}
 		i++;
 	}
 	return (EXIT_SUCCESS);
