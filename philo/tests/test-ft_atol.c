@@ -44,10 +44,21 @@ int	should_return_zero_for_max_plus_one(void)
 	return (EXIT_FAILURE);
 }
 
+int	should_return_negative_number_in_long_range(void)
+{
+	char	str[] = "-922337";
+
+	if (ft_atol(str) == -922337)
+		return (EXIT_SUCCESS);
+	printf("Expected: %ld\nReceived: %ld\n", 0L, ft_atol(str));
+	return (EXIT_FAILURE);
+}
+
 int	main(void)
 {
 	RUN_TEST(should_return_long_max_from_string);
 	RUN_TEST(should_return_long_min_from_string);
 	RUN_TEST(should_return_zero_for_min_minus_one);
 	RUN_TEST(should_return_zero_for_max_plus_one);
+	RUN_TEST(should_return_negative_number_in_long_range);
 }
