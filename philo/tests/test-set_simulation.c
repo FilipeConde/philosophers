@@ -12,7 +12,8 @@ int	should_set_simulation_with_4_values(void)
 		&& sim->time_to_die == (long)200
 		&& sim->time_to_eat == (long)300
 		&& sim->time_to_sleep == (long)400
-		&& sim->max_meals == 0)
+		&& sim->max_meals == 0
+		&& sim->stop_sim_flag == 0)
 	{
 		free(sim);
 		return (EXIT_SUCCESS);
@@ -22,6 +23,7 @@ int	should_set_simulation_with_4_values(void)
 	printf("Expected: %lu\nReceived: %lu\n", (long)300, sim->time_to_eat);
 	printf("Expected: %lu\nReceived: %lu\n", (long)400, sim->time_to_sleep);
 	printf("Expected: %d\nReceived: %lu\n", 0, sim->max_meals);
+	printf("Expected: %d\nReceived: %d\n", 0, sim->stop_sim_flag);
 	free(sim);
 	return (EXIT_FAILURE);
 }
@@ -37,7 +39,8 @@ int	should_set_simulation_with_5_values(void)
 		&& sim->time_to_die == (long)200
 		&& sim->time_to_eat == (long)300
 		&& sim->time_to_sleep == (long)400
-		&& sim->max_meals == 600)
+		&& sim->max_meals == 600
+		&& sim->stop_sim_flag == 0)
 	{
 		free(sim);
 		return (EXIT_SUCCESS);
@@ -47,6 +50,7 @@ int	should_set_simulation_with_5_values(void)
 	printf("Expected: %lu\nReceived: %lu\n", (long)300, sim->time_to_eat);
 	printf("Expected: %lu\nReceived: %lu\n", (long)400, sim->time_to_sleep);
 	printf("Expected: %lu\nReceived: %lu\n", (long)600, sim->max_meals);
+	printf("Expected: %d\nReceived: %d\n", 0, sim->stop_sim_flag);
 	free(sim);
 	return (EXIT_FAILURE);
 }
