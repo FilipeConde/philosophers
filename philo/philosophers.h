@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 15:32:44 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 20:20:25 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/15 20:32:30 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <string.h>
 
 typedef struct s_philo
 {
