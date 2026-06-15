@@ -66,7 +66,8 @@ val:
 			--trace-children=yes \
 			--track-fds=yes \
 			--trace-children-skip='/bin/,/sbin/,/usr/bin/*' \
-			--suppressions=shelly.supp ./$(NAME)
+			./$(NAME) 30 200 300 400 600
+# 			--suppressions=shelly.supp ./$(NAME)
 
 re: fclean all
 
