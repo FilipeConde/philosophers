@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   set_simulation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/13 13:24:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 20:09:02 by fconde-p         ###   ########.fr       */
+/*   Created: 2026/06/15 19:30:16 by fconde-p          #+#    #+#             */
+/*   Updated: 2026/06/15 20:04:34 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	main(int ac, char **av)
+t_sim	*set_simulation(char **av)
 {
 	t_sim	*simulation;
 
-	if (input_checker(ac, av) == EXIT_FAILURE)
-		return (1);
-	printf("RUN PROGRAM");
-	simulation = set_simulation(av);
-	if (simulation)
-		free(simulation);
-	return (0);
+	simulation = malloc(sizeof(t_sim));
+	if (!simulation)
+		return (NULL);
+	simulation->philo_qty = (int)atol(av[1]);
+	simulation->time_to_die = atol(av[2]);
+	simulation->time_to_eat = atol(av[3]);
+	simulation->time_to_sleep = atol(av[4]);
+	if (av[5])
+		simulation->max_meals = atol(av[5]);
+	else
+		simulation->max_meals = atol("0");
+	return (simulation);
 }

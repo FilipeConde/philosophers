@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 15:32:44 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/13 20:20:39 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/15 19:50:00 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int				sample(void);
 unsigned long	get_current_time(void);
 long			ft_atol(const char *nptr);
 int				input_checker(int ac, char **av);
+t_sim			*set_simulation(char **av);
 
 #endif
