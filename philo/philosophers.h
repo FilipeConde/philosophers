@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 15:32:44 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 20:33:37 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/16 01:49:49 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct s_sim
 	int				stop_sim_flag;
 	pthread_mutex_t	print_lock;
 	pthread_mutex_t	stop_sim_lock;
-	// pthread_mutex_t	*forks;
-	// pthread_t		*thread_id;
-	// t_philo			*philos;
+	pthread_mutex_t	*forks;
+	pthread_t		*thread_id;
+	t_philo			*philos;
 }	t_sim;
 
 int				sample(void);

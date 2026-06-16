@@ -6,7 +6,6 @@ int	should_set_simulation_with_4_values(void)
 	char	*av[] = {"name", "30", "200", "300", "400"};
 	t_sim	*sim;
 
-	sim = malloc(sizeof(t_sim));
 	sim = set_simulation(av);
 	if (sim->philo_qty == 30
 		&& sim->time_to_die == (long)200
@@ -15,6 +14,7 @@ int	should_set_simulation_with_4_values(void)
 		&& sim->max_meals == 0
 		&& sim->stop_sim_flag == 0)
 	{
+		free(sim->forks);
 		free(sim);
 		return (EXIT_SUCCESS);
 	}
@@ -24,6 +24,7 @@ int	should_set_simulation_with_4_values(void)
 	printf("Expected: %lu\nReceived: %lu\n", (long)400, sim->time_to_sleep);
 	printf("Expected: %d\nReceived: %lu\n", 0, sim->max_meals);
 	printf("Expected: %d\nReceived: %d\n", 0, sim->stop_sim_flag);
+	free(sim->forks);
 	free(sim);
 	return (EXIT_FAILURE);
 }
@@ -33,7 +34,6 @@ int	should_set_simulation_with_5_values(void)
 	char	*av[] = {"name", "30", "200", "300", "400", "600"};
 	t_sim	*sim;
 
-	sim = malloc(sizeof(t_sim));
 	sim = set_simulation(av);
 	if (sim->philo_qty == 30
 		&& sim->time_to_die == (long)200
@@ -42,6 +42,7 @@ int	should_set_simulation_with_5_values(void)
 		&& sim->max_meals == 600
 		&& sim->stop_sim_flag == 0)
 	{
+		free(sim->forks);
 		free(sim);
 		return (EXIT_SUCCESS);
 	}
@@ -51,6 +52,26 @@ int	should_set_simulation_with_5_values(void)
 	printf("Expected: %lu\nReceived: %lu\n", (long)400, sim->time_to_sleep);
 	printf("Expected: %lu\nReceived: %lu\n", (long)600, sim->max_meals);
 	printf("Expected: %d\nReceived: %d\n", 0, sim->stop_sim_flag);
+	free(sim->forks);
+	free(sim);
+	return (EXIT_FAILURE);
+}
+
+int	should_have_5_forks_for_5_philosophers(void)
+{
+	char	*av[] = {"name", "5", "200", "300", "400", "600"};
+	t_sim	*sim;
+
+	sim = set_simulation(av);
+	if ((sim->philo_qty == 5) && (sim->forks != NULL))
+	{
+		free(sim->forks);
+		free(sim);
+		return (EXIT_SUCCESS);
+	}
+	printf("Expected philo_qty: %d\nReceived: %d\n", 5, sim->philo_qty);
+	printf("Expected forks != NULL\nReceived: %p\n", (void *)sim->forks);
+	free(sim->forks);
 	free(sim);
 	return (EXIT_FAILURE);
 }
@@ -59,4 +80,5 @@ int	main(void)
 {
 	RUN_TEST(should_set_simulation_with_4_values);
 	RUN_TEST(should_set_simulation_with_5_values);
+	RUN_TEST(should_have_5_forks_for_5_philosophers);
 }
