@@ -21,7 +21,7 @@ void	ft_usleep(long duration, pthread_mutex_t *stop_sim_lock, int *stop_sim)
 	end = 0;
 	start = get_current_time();
 	end = start;
-	while (end - start < (duration * 1000))
+	while (end - start < duration)
 	{
 		usleep(200);
 		end = get_current_time();
