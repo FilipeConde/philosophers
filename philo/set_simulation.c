@@ -6,11 +6,25 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 19:30:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 20:04:34 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/15 22:09:06 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
+
+static int	set_lock_mutexes(t_sim *sim)
+{
+	memset(&sim->print_lock, 0, sizeof(pthread_mutex_t));
+	memset(&sim->stop_sim_lock, 0, sizeof(pthread_mutex_t));
+	if (pthread_mutex_init(&sim->print_lock, NULL) != 0)
+		return (EXIT_FAILURE);
+	if (pthread_mutex_init(&sim->stop_sim_lock, NULL) != 0)
+	{
+		pthread_mutex_destroy(&sim->print_lock);
+		return (EXIT_FAILURE);
+	}
+	return (EXIT_SUCCESS);
+}
 
 t_sim	*set_simulation(char **av)
 {
@@ -27,5 +41,8 @@ t_sim	*set_simulation(char **av)
 		simulation->max_meals = atol(av[5]);
 	else
 		simulation->max_meals = atol("0");
+	simulation->stop_sim_flag = 0;
+	if (set_lock_mutexes(simulation) == EXIT_FAILURE)
+		return (NULL);
 	return (simulation);
 }

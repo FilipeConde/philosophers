@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 13:24:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 20:09:02 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/15 21:05:52 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int ac, char **av)
 		return (1);
 	printf("RUN PROGRAM");
 	simulation = set_simulation(av);
+	if (simulation == NULL)
+		return (1);
 	if (simulation)
 		free(simulation);
 	return (0);
