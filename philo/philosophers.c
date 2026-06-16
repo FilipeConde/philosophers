@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 13:24:50 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 21:05:52 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/16 02:45:25 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	main(int ac, char **av)
 	if (simulation == NULL)
 		return (1);
 	if (simulation)
-		free(simulation);
+		free_simulation(&simulation);
 	return (0);
 }

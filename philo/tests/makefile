@@ -6,12 +6,13 @@ C_FILES     = ../sample.c \
 				../get_current_time.c \
 				../input_checker.c \
 				../set_simulation.c \
+				../free_simulation.c \
 				../ft_atol.c
 
 UTIL_FILES  = utils/test_log.c \
               utils/capture_stdout.c
 
-LIBS        =  # -ldl -glfw -pthread -lm
+LIBS        = -pthread  # -ldl -glfw -lm
 HEADERS     = -I. -I$(TEST_DIR) -I..
 
               # Tests section
@@ -20,6 +21,7 @@ HEADERS     = -I. -I$(TEST_DIR) -I..
 							$(TEST_DIR)/test-get_current_time.c \
 							$(TEST_DIR)/test-input_checker.c \
 							$(TEST_DIR)/test-set_simulation.c \
+							$(TEST_DIR)/test-free_simulation.c \
 							$(TEST_DIR)/test-ft_atol.c
 
 TEST_BINS   = $(TEST_SRCS:.c=.out)
@@ -56,14 +58,14 @@ test:
 
 single:
 	@echo "Compiling individual test file for: $(T)"
-	$(CC) $(CFLAGS) $(C_FILES) $(UTIL_FILES) test-$(T).c $(HEADERS) -o unit_test.out
+	$(CC) $(CFLAGS) $(C_FILES) $(UTIL_FILES) test-$(T).c $(HEADERS) $(LIBS) -o unit_test.out
 
 run_test_bins: $(TEST_BINS)
 
 # Regra de compilação e execução por arquivo
 $(TEST_DIR)/%.out: $(TEST_DIR)/%.c
 	@# Tries to compile. If fail, log it to log file.
-	@$(CC) $(CFLAGS) $(C_FILES) $(UTIL_FILES) $< $(HEADERS) -o $@ >> $(REPORT_LOG) 2>&1 || \
+	@$(CC) $(CFLAGS) $(C_FILES) $(UTIL_FILES) $< $(HEADERS) $(LIBS) -o $@ >> $(REPORT_LOG) 2>&1 || \
 		(echo "\nFile: $<" >> $(REPORT_LOG) && \
 		 echo "      [ERROR] Compilation failed" >> $(REPORT_LOG) && exit 0)
 	@# If binary was created, runs it and cleans it

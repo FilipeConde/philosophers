@@ -49,7 +49,7 @@ int	preset_philos(t_sim *sim)
 	sim->philos = malloc(sim->philo_qty * sizeof(t_philo));
 	if (!sim->philos)
 		return (EXIT_FAILURE);
-	memset(sim->philos, 0, sim->philo_qty * sizeof(pthread_mutex_t));
+	memset(sim->philos, 0, sim->philo_qty * sizeof(t_philo));
 	sim->thread_id = malloc(sim->philo_qty * sizeof(pthread_t));
 	if (!sim->thread_id)
 		return (EXIT_FAILURE);
