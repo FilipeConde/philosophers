@@ -9,6 +9,7 @@ C_FILES     = ../sample.c \
 				../set_philosophers.c \
 				../free_simulation.c \
 				../has_sim_stoped.c \
+				../print_status.c \
 				../ft_atol.c
 
 UTIL_FILES  = utils/test_log.c \

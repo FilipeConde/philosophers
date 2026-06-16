@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/13 15:32:44 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/16 04:28:27 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/16 04:42:59 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ t_sim			*set_simulation(char **av);
 int				set_philosophers(t_sim *sim);
 void			free_simulation(t_sim **sim);
 int				has_sim_stoped(int *stop_sim, pthread_mutex_t *stop_sim_lock);
+void			print_status(t_philo *philo, char *str);
 
 #endif
