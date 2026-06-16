@@ -8,6 +8,7 @@ C_FILES     = ../sample.c \
 				../set_simulation.c \
 				../set_philosophers.c \
 				../start_simulation.c \
+				../routine.c \
 				../free_simulation.c \
 				../has_sim_stoped.c \
 				../print_status.c \

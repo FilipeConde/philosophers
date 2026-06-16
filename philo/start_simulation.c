@@ -12,14 +12,14 @@
 
 #include "philosophers.h"
 
-/* Stub temporário da Fase 1: será movido para routine.c na Fase 2. */
-static void	*philo_routine(void *arg)
+/* TEMP (Fase 2): sem monitor ainda, paramos a simulação após tempo fixo.
+   Será substituído pelo monitor real na Fase 3. */
+static void	temporary_timed_stop(t_sim *sim)
 {
-	t_philo	*philo;
-
-	philo = (t_philo *)arg;
-	(void)philo;
-	return (NULL);
+	ft_usleep(800, &sim->stop_sim_lock, &sim->stop_sim_flag);
+	pthread_mutex_lock(&sim->stop_sim_lock);
+	sim->stop_sim_flag = 1;
+	pthread_mutex_unlock(&sim->stop_sim_lock);
 }
 
 int	start_simulation(t_sim *sim)
@@ -35,6 +35,7 @@ int	start_simulation(t_sim *sim)
 			break ;
 		created++;
 	}
+	temporary_timed_stop(sim);
 	i = 0;
 	while (i < created)
 		pthread_join(sim->thread_id[i++], NULL);
