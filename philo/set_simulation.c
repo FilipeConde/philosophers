@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 19:30:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/15 22:09:06 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/15 22:47:10 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ t_sim	*set_simulation(char **av)
 	simulation = malloc(sizeof(t_sim));
 	if (!simulation)
 		return (NULL);
-	simulation->philo_qty = (int)atol(av[1]);
-	simulation->time_to_die = atol(av[2]);
-	simulation->time_to_eat = atol(av[3]);
-	simulation->time_to_sleep = atol(av[4]);
+	simulation->philo_qty = (int)ft_atol(av[1]);
+	simulation->time_to_die = ft_atol(av[2]);
+	simulation->time_to_eat = ft_atol(av[3]);
+	simulation->time_to_sleep = ft_atol(av[4]);
 	if (av[5])
-		simulation->max_meals = atol(av[5]);
+		simulation->max_meals = ft_atol(av[5]);
 	else
-		simulation->max_meals = atol("0");
+		simulation->max_meals = ft_atol("0");
 	simulation->stop_sim_flag = 0;
 	if (set_lock_mutexes(simulation) == EXIT_FAILURE)
 		return (NULL);
