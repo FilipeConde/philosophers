@@ -57,6 +57,7 @@ unsigned long	get_current_time(void);
 long			ft_atol(const char *nptr);
 int				input_checker(int ac, char **av);
 t_sim			*set_simulation(char **av);
+int				set_philosophers(t_sim *sim);
 void			free_simulation(t_sim **sim);
 
 #endif

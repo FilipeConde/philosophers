@@ -30,7 +30,12 @@ void	free_simulation(t_sim **sim)
 	if ((*sim)->thread_id != NULL)
 		free((*sim)->thread_id);
 	if ((*sim)->philos != NULL)
+	{
+		i = 0;
+		while (i < (*sim)->philo_qty)
+			pthread_mutex_destroy(&(*sim)->philos[i++].philo_lock);
 		free((*sim)->philos);
+	}
 	free(*sim);
 	*sim = NULL;
 }

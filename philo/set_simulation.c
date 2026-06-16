@@ -6,7 +6,7 @@
 /*   By: fconde-p <fconde-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/15 19:30:16 by fconde-p          #+#    #+#             */
-/*   Updated: 2026/06/16 02:05:43 by fconde-p         ###   ########.fr       */
+/*   Updated: 2026/06/16 04:06:14 by fconde-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static int	set_lock_mutexes(t_sim *sim)
 
 int	preset_philos(t_sim *sim)
 {
-
 	sim->philos = malloc(sim->philo_qty * sizeof(t_philo));
 	if (!sim->philos)
 		return (EXIT_FAILURE);
@@ -79,6 +78,8 @@ t_sim	*set_simulation(char **av)
 		return (NULL);
 	simulation->start_time = get_current_time() + (5 * simulation->philo_qty);
 	if (preset_philos(simulation) == EXIT_FAILURE)
+		return (NULL);
+	if (set_philosophers(simulation) == EXIT_FAILURE)
 		return (NULL);
 	return (simulation);
 }

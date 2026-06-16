@@ -6,6 +6,7 @@ C_FILES     = ../sample.c \
 				../get_current_time.c \
 				../input_checker.c \
 				../set_simulation.c \
+				../set_philosophers.c \
 				../free_simulation.c \
 				../ft_atol.c
 
