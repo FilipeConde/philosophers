@@ -63,23 +63,25 @@ t_sim	*set_simulation(char **av)
 	simulation = malloc(sizeof(t_sim));
 	if (!simulation)
 		return (NULL);
+	memset(simulation, 0, sizeof(t_sim));
 	simulation->philo_qty = (int)ft_atol(av[1]);
 	simulation->time_to_die = ft_atol(av[2]);
 	simulation->time_to_eat = ft_atol(av[3]);
 	simulation->time_to_sleep = ft_atol(av[4]);
 	if (av[5])
 		simulation->max_meals = ft_atol(av[5]);
-	else
-		simulation->max_meals = ft_atol("0");
-	simulation->stop_sim_flag = 0;
 	if (set_lock_mutexes(simulation) == EXIT_FAILURE)
+	{
+		free(simulation);
 		return (NULL);
-	if (set_forks(simulation) == EXIT_FAILURE)
-		return (NULL);
+	}
 	simulation->start_time = get_current_time() + (5 * simulation->philo_qty);
-	if (preset_philos(simulation) == EXIT_FAILURE)
+	if (set_forks(simulation) == EXIT_FAILURE
+		|| preset_philos(simulation) == EXIT_FAILURE
+		|| set_philosophers(simulation) == EXIT_FAILURE)
+	{
+		free_simulation(&simulation);
 		return (NULL);
-	if (set_philosophers(simulation) == EXIT_FAILURE)
-		return (NULL);
+	}
 	return (simulation);
 }

@@ -3,7 +3,7 @@ NAME		= philo
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g3
 INCLUDES	= -I./includes
-# LIBS		= -L./lib/libft -lft -lreadline
+LIBS		= -pthread
 
 SRC_DIR		= .
 OBJ_DIR		= obj
@@ -14,9 +14,13 @@ SRC_FILES	= philosophers.c \
 				input_checker.c \
 				set_simulation.c \
 				set_philosophers.c \
+				start_simulation.c \
+				routine.c \
+				monitor.c \
 				free_simulation.c \
 				has_sim_stoped.c \
 				print_status.c \
+				ft_usleep.c \
 				ft_atol.c
 
 SRCS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES))
@@ -34,7 +38,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "$(GREEN)Compiled: $<$(RESET)"
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBS)
 	@echo "$(GREEN)✓ Philo compiled successfully!$(RESET)"
 
 unit-tests:

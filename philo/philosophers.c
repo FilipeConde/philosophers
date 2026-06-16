@@ -18,11 +18,10 @@ int	main(int ac, char **av)
 
 	if (input_checker(ac, av) == EXIT_FAILURE)
 		return (1);
-	printf("RUN PROGRAM");
 	simulation = set_simulation(av);
 	if (simulation == NULL)
 		return (1);
-	if (simulation)
-		free_simulation(&simulation);
+	start_simulation(simulation);
+	free_simulation(&simulation);
 	return (0);
 }
