@@ -7,9 +7,11 @@ C_FILES     = ../sample.c \
 				../input_checker.c \
 				../set_simulation.c \
 				../set_philosophers.c \
+				../start_simulation.c \
 				../free_simulation.c \
 				../has_sim_stoped.c \
 				../print_status.c \
+				../ft_usleep.c \
 				../ft_atol.c
 
 UTIL_FILES  = utils/test_log.c \
@@ -25,6 +27,7 @@ HEADERS     = -I. -I$(TEST_DIR) -I..
 							$(TEST_DIR)/test-input_checker.c \
 							$(TEST_DIR)/test-set_simulation.c \
 							$(TEST_DIR)/test-free_simulation.c \
+							$(TEST_DIR)/test-start_simulation.c \
 							$(TEST_DIR)/test-ft_atol.c
 
 TEST_BINS   = $(TEST_SRCS:.c=.out)

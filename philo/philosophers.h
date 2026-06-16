@@ -58,8 +58,11 @@ long			ft_atol(const char *nptr);
 int				input_checker(int ac, char **av);
 t_sim			*set_simulation(char **av);
 int				set_philosophers(t_sim *sim);
+int				start_simulation(t_sim *sim);
 void			free_simulation(t_sim **sim);
 int				has_sim_stoped(int *stop_sim, pthread_mutex_t *stop_sim_lock);
 void			print_status(t_philo *philo, char *str);
+void			ft_usleep(long duration, pthread_mutex_t *stop_sim_lock,
+					int *stop_sim);
 
 #endif
