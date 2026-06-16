@@ -56,6 +56,16 @@ int	preset_philos(t_sim *sim)
 	return (EXIT_SUCCESS);
 }
 
+static void	set_values(t_sim *sim, char **av)
+{
+	sim->philo_qty = (int)ft_atol(av[1]);
+	sim->time_to_die = ft_atol(av[2]);
+	sim->time_to_eat = ft_atol(av[3]);
+	sim->time_to_sleep = ft_atol(av[4]);
+	if (av[5])
+		sim->max_meals = ft_atol(av[5]);
+}
+
 t_sim	*set_simulation(char **av)
 {
 	t_sim	*simulation;
@@ -64,12 +74,7 @@ t_sim	*set_simulation(char **av)
 	if (!simulation)
 		return (NULL);
 	memset(simulation, 0, sizeof(t_sim));
-	simulation->philo_qty = (int)ft_atol(av[1]);
-	simulation->time_to_die = ft_atol(av[2]);
-	simulation->time_to_eat = ft_atol(av[3]);
-	simulation->time_to_sleep = ft_atol(av[4]);
-	if (av[5])
-		simulation->max_meals = ft_atol(av[5]);
+	set_values(simulation, av);
 	if (set_lock_mutexes(simulation) == EXIT_FAILURE)
 	{
 		free(simulation);
