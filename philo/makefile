@@ -15,6 +15,7 @@ SRC_FILES	= philosophers.c \
 				set_simulation.c \
 				set_philosophers.c \
 				free_simulation.c \
+				has_sim_stoped.c \
 				ft_atol.c
 
 SRCS		= $(addprefix $(OBJ_DIR)/, $(SRC_FILES))

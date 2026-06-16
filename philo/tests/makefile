@@ -8,6 +8,7 @@ C_FILES     = ../sample.c \
 				../set_simulation.c \
 				../set_philosophers.c \
 				../free_simulation.c \
+				../has_sim_stoped.c \
 				../ft_atol.c
 
 UTIL_FILES  = utils/test_log.c \
