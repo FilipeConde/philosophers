@@ -4,7 +4,7 @@
 
 int	should_create_and_join_all_threads(void)
 {
-	char	*av[] = {"name", "5", "800", "200", "200", NULL};
+	char	*av[] = {"name", "5", "800", "200", "200", "3", NULL};
 	t_sim	*sim;
 	int		result;
 
@@ -20,7 +20,7 @@ int	should_create_and_join_all_threads(void)
 
 int	should_run_eat_sleep_think_cycle(void)
 {
-	char	*av[] = {"name", "5", "800", "200", "200", NULL};
+	char	*av[] = {"name", "5", "800", "200", "200", "3", NULL};
 	t_sim	*sim;
 	int		saved;
 	char	*out;
@@ -44,7 +44,7 @@ int	should_run_eat_sleep_think_cycle(void)
 
 int	should_handle_single_thread(void)
 {
-	char	*av[] = {"name", "1", "800", "200", "200", NULL};
+	char	*av[] = {"name", "1", "200", "100", "100", NULL};
 	t_sim	*sim;
 	int		result;
 

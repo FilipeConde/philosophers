@@ -9,6 +9,7 @@ C_FILES     = ../sample.c \
 				../set_philosophers.c \
 				../start_simulation.c \
 				../routine.c \
+				../monitor.c \
 				../free_simulation.c \
 				../has_sim_stoped.c \
 				../print_status.c \
@@ -29,6 +30,7 @@ HEADERS     = -I. -I$(TEST_DIR) -I..
 							$(TEST_DIR)/test-set_simulation.c \
 							$(TEST_DIR)/test-free_simulation.c \
 							$(TEST_DIR)/test-start_simulation.c \
+							$(TEST_DIR)/test-monitor.c \
 							$(TEST_DIR)/test-ft_atol.c
 
 TEST_BINS   = $(TEST_SRCS:.c=.out)
