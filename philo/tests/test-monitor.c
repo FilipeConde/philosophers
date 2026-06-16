@@ -61,9 +61,24 @@ int	should_kill_single_philosopher(void)
 	return (EXIT_FAILURE);
 }
 
+int	should_handle_two_philosophers(void)
+{
+	char	*av[] = {"name", "2", "800", "200", "200", "5", NULL};
+	char	*out;
+	int		ok;
+
+	out = run_and_capture(av);
+	ok = (out && !strstr(out, "died") && strstr(out, "is eating"));
+	free(out);
+	if (ok)
+		return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
+}
+
 int	main(void)
 {
 	RUN_TEST(should_report_death_when_starving);
 	RUN_TEST(should_stop_without_death_on_max_meals);
 	RUN_TEST(should_kill_single_philosopher);
+	RUN_TEST(should_handle_two_philosophers);
 }
